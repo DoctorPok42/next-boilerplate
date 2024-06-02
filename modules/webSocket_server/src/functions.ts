@@ -28,7 +28,7 @@ export const checkAuthToken = (token: string) => {
   if (!token) return null;
 
   const decoded = verifyAuthToken(token) as any;
-  if (!decoded || !decoded.id) return null;
+  if (!decoded?.id) return null;
 
   return decoded;
 };

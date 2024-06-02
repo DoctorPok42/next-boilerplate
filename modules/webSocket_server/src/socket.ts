@@ -23,9 +23,9 @@ const startComunication = (io: Server, events: Events[]) => {
           });
 
         try {
-          if (event.params && event.params.authRequired) {
+          if (event.params?.authRequired) {
             const decoded = checkAuthToken(data.token);
-            if (decoded && decoded.id) {
+            if (decoded?.id) {
               const response = await event(data, decoded, socket.id);
               socket.emit(eventName, response);
             } else {
